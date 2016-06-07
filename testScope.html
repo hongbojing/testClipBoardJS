@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+    function Father(){
+        this.name = "father name";
+        this.age = 50;
+        this.house = ['house 1', 'house 2', 'house 3'];
+        this.job = {'title': 'developer', 'salary': 50000};
+        this.sayMyName = function(){ console.warn('I am your father'); }
+    }
+
+    function Son(){
+    }
+
+    Son.prototype = new Father();
+
+    var sonExample = new Son();
+    var fatherExample = new Father();
+
+    console.warn( "------ step zero, display the whole object ------" );
+    console.warn(sonExample);
+    console.warn(fatherExample);
+    console.warn("****** end of step zero ******");
+
+    console.info( "------ step 1, access a property from the child scope and defined on the parentScope, climb up till it finds the property ------" );
+    console.info(sonExample.name);
+    console.info(sonExample.age);
+    console.info(sonExample.house);
+    console.info(sonExample.job);
+    console.info(sonExample.sayMyName);
+    console.info("****** end of step 1 ******");
+
+    console.warn( "------ step 2, childScope.aString = 'child string ------" );
+    sonExample.age = 24;
+    sonExample.go_to_school = true;
+    // sonExample.house = ['lala', 'haha', 'lulu'];
+    // sonExample.job = {'title': 'no title', 'salary': 'no salary'};
+    console.warn(sonExample);
+    console.warn(sonExample.house[0]);
+    console.warn("****** end of step 2 ******");
+
+    console.info( "------ step 3, childScope.anArray[1] = 22 ------" );
+    sonExample.house[0] = 'son has no house';
+    console.info(sonExample);
+    console.info("****** end of step 3 ******");
+
+    console.warn( "------ step 4, yyy ------" );
+
+    console.warn("****** end of step 4 ******");
+
+    console.info( "------ step 5, yyy ------" );
+    console.info(sonExample.name);
+    console.info(sonExample.age);
+    console.info(sonExample.house);
+    console.info(sonExample.job);
+    console.info(sonExample.sayMyName);
+    console.info("****** end of step 5 ******");
+
+    console.warn( "------ step 6, yyy ------" );
+
+    console.warn("****** end of step 6 ******");
+
+    console.info( "------ step 7, yyy ------" );
+    console.info(sonExample.name);
+    console.info(sonExample.age);
+    console.info(sonExample.house);
+    console.info(sonExample.job);
+    console.info(sonExample.sayMyName);
+    console.info("****** end of step 7 ******");
+
+
+</script>
+</body>
+</html>
